@@ -1,74 +1,117 @@
 package telas;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
-public class telaLogin extends JFrame {
+public class TelaLogin {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JFrame frame;
+	private JTextField textUsername;
+	private JTextField textPassword;
+	private final JLabel label = new JLabel("New label");
 
-	public telaLogin() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 829, 577);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 816, 540);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("Login");
-		lblNewLabel_1.setFont(new Font("Arial Black", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(373, 159, 89, 23);
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblName = new JLabel("User ");
-		lblName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblName.setBounds(269, 205, 48, 14);
-		panel.add(lblName);
-		
-		textField = new JTextField();
-		textField.setBounds(316, 204, 177, 20);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblPasswor = new JLabel("Password");
-		lblPasswor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPasswor.setBounds(235, 247, 71, 14);
-		panel.add(lblPasswor);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(316, 246, 177, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Sign in");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+	 // Iniciando a tela
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaLogin window = new TelaLogin();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
-		btnNewButton.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
-		btnNewButton.setBounds(316, 298, 80, 23);
-		panel.add(btnNewButton);
+	}
+
+	// criando a tela
+	
+	public TelaLogin() {
+		initialize();
+	}
+
+	// Adicionando as informações na tela
+
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(45, 187, 249));
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		
+		
+		JButton btnSignIn = new JButton("Sign in");
+		btnSignIn.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				//Adicionando tela 2 no botão
+				frame.dispose();
+				SignIn si = new SignIn();
+				si.setVisible(true);
+			
+			}
+		});
+		btnSignIn.setBounds(163, 187, 75, 20);
+		frame.getContentPane().add(btnSignIn);
+		
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setHorizontalAlignment(SwingConstants.LEFT);
+		lblLogin.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblLogin.setBounds(85, 85, 46, 23);
+		frame.getContentPane().add(lblLogin);
+		
+		JLabel lblUser = new JLabel("Username");
+		lblUser.setHorizontalAlignment(SwingConstants.LEFT);
+		lblUser.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblUser.setBounds(85, 116, 68, 23);
+		frame.getContentPane().add(lblUser);
+		
+		textUsername = new JTextField();
+		textUsername.setBounds(163, 119, 161, 20);
+		frame.getContentPane().add(textUsername);
+		textUsername.setColumns(10);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPassword.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblPassword.setBounds(85, 150, 68, 23);
+		frame.getContentPane().add(lblPassword);
+		
+		textPassword = new JTextField();
+		textPassword.setColumns(10);
+		textPassword.setBounds(163, 153, 161, 20);
+		frame.getContentPane().add(textPassword);
 		
 		JButton btnSignUp = new JButton("Sign up");
-		btnSignUp.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
-		btnSignUp.setBounds(406, 298, 87, 23);
-		panel.add(btnSignUp);
+		btnSignUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Adicionando tela 2 no botão
+				frame.dispose();
+				SignUp su = new SignUp();
+				su.setVisible(true);
+				
+			}
+		});
+		btnSignUp.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
+		btnSignUp.setBounds(249, 186, 75, 20);
+		frame.getContentPane().add(btnSignUp);
+		label.setBounds(121, -6, 213, 129);
+		frame.getContentPane().add(label);
+		label.setIcon(new ImageIcon("C:\\Users\\Luan Christian Cunha\\Desktop\\Java\\Projeto mercado\\Logotipo do mercado\\Super Online Market 50-01.png"));
 	}
 }

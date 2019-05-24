@@ -6,9 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import beans.Usuario;
+
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -16,7 +23,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 
 public class SignUp extends JFrame {
-
+	
+	
 	private JPanel contentPane;
 	private JTextField textName;
 	private JTextField textAge;
@@ -29,10 +37,15 @@ public class SignUp extends JFrame {
 	private JLabel lblSenha;
 	private JTextField textSenha;
 	private JLabel lblPagamento;
+	public static Usuario user = new Usuario();
 
+	TelaLogin tela = new TelaLogin();
+	
 	//Adicionando as informações na tela
 	
 	public SignUp() {
+		
+		
 		
 		//Ícone
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Luan Christian Cunha\\Pictures\\Icones\\Redes sociais\\Brilliance Resume Update - OfficeWorld\\Social Icon\\Transparent\\19 - profile t.png"));
@@ -141,5 +154,37 @@ public class SignUp extends JFrame {
 		btnCadastrar.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
 		btnCadastrar.setBounds(310, 252, 114, 23);
 		contentPane.add(btnCadastrar);
+		
+		btnCadastrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				boolean verificar=false;
+				
+				user.setNome(textName.getText());
+				try {
+					user.setIdade(Integer.parseInt(textAge.getText()));
+					verificar =true;
+				} catch (Exception exe) {
+					JOptionPane.showMessageDialog(null, "idade só pode receber numeros");
+					System.out.println("campo só pode receber numero");
+					
+				}
+				
+				user.setCpf(textCPF.getText());
+				user.setEmail(textEmail.getText());
+				user.setuser(textUsuario.getText());
+				user.setPassword(textSenha.getText());
+				if(verificar==true) {
+					dispose();
+					SignIn a = new SignIn();
+					a.setVisible(true);
+				}
+				
+				
+				
+			}
+		});
 	}
 }

@@ -7,8 +7,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import beans.Usuario;
+import dados.Dados;
+
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
@@ -20,6 +27,7 @@ public class TelaLogin {
 	private JTextField textUsername;
 	private JTextField textPassword;
 	private final JLabel label = new JLabel("New label");
+	public static SignIn si = new SignIn();
 
 	 // Iniciando a tela
 
@@ -29,6 +37,15 @@ public class TelaLogin {
 				try {
 					TelaLogin window = new TelaLogin();
 					window.frame.setVisible(true);
+					Usuario master = new Usuario();
+					master.setuser("master");
+					master.setPassword("12345");
+					Dados.ListaUsuario.add(master);
+					
+					
+					si.setVisible(false);
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,16 +72,7 @@ public class TelaLogin {
 		
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
-		btnSignIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-				//Adicionando tela 2 no botão
-				frame.dispose();
-				SignIn si = new SignIn();
-				si.setVisible(true);
-			
-			}
-		});
+		
 		btnSignIn.setBounds(163, 187, 75, 20);
 		frame.getContentPane().add(btnSignIn);
 		
@@ -91,7 +99,7 @@ public class TelaLogin {
 		lblPassword.setBounds(85, 150, 68, 23);
 		frame.getContentPane().add(lblPassword);
 		
-		textPassword = new JTextField();
+		textPassword = new JPasswordField();
 		textPassword.setColumns(10);
 		textPassword.setBounds(163, 153, 161, 20);
 		frame.getContentPane().add(textPassword);
@@ -105,6 +113,30 @@ public class TelaLogin {
 				SignUp su = new SignUp();
 				su.setVisible(true);
 				
+			}
+		});
+		
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				boolean verificar= false;
+				
+				for(int i =0;i<Dados.ListaUsuario.size();i++) {
+					if(Dados.ListaUsuario.get(i).getuser().equals(textUsername.getText())&&Dados.ListaUsuario.get(i).getPassword().equals(textPassword.getText())) {
+						verificar =true;
+						break;
+					}
+				}
+				if(verificar) {
+					//Adicionando tela 2 no botão
+					frame.dispose();
+					
+					si.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Senha ou Usuario incorretos");
+				}
+				
+			
 			}
 		});
 		btnSignUp.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));

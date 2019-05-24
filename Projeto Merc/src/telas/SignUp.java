@@ -28,7 +28,20 @@ public class SignUp extends JFrame {
 	private JTextField textUsuario;
 	private JLabel lblSenha;
 	private JTextField textSenha;
-	private JLabel lblPagamento;
+	private JTextField textField;
+	private JLabel lblNewLabel;
+	private JTextField textField_1;
+	private JLabel lblEndereo;
+	private JLabel lblCep;
+	private JTextField textField_2;
+	private JLabel lblN;
+	private JTextField textField_3;
+	private JLabel lblComplemento;
+	private JTextField textField_6;
+	private JLabel lblBairro;
+	private JTextField textField_5;
+	private JLabel lblCidade;
+	private JTextField textField_7;
 
 	//Adicionando as informações na tela
 	
@@ -40,7 +53,7 @@ public class SignUp extends JFrame {
 		//Tela
 		setTitle("Sign Up");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 326);
+		setBounds(100, 100, 450, 523);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(45, 187, 249));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -111,35 +124,94 @@ public class SignUp extends JFrame {
 		textSenha = new JTextField();
 		textSenha.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
 		textSenha.setColumns(10);
-		textSenha.setBounds(68, 182, 356, 20);
+		textSenha.setBounds(68, 182, 119, 20);
 		contentPane.add(textSenha);
-		
-		lblPagamento = new JLabel("Pagamento");
-		lblPagamento.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
-		lblPagamento.setBounds(9, 220, 92, 26);
-		contentPane.add(lblPagamento);
-		
-		JCheckBox boxCartoDeCredito = new JCheckBox("Cart\u00E3o de cr\u00E9dito");
-		boxCartoDeCredito.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
-		boxCartoDeCredito.setOpaque(isActive());
-		boxCartoDeCredito.setBounds(91, 222, 134, 23);
-		contentPane.add(boxCartoDeCredito);
-		
-		JCheckBox boxDinheiro = new JCheckBox("Dinheiro");
-		boxDinheiro.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
-		boxDinheiro.setOpaque(isActive());
-		boxDinheiro.setBounds(249, 222, 76, 23);
-		contentPane.add(boxDinheiro);
-		
-		JCheckBox boxDebito = new JCheckBox("D\u00E9bito");
-		boxDebito.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
-		boxDebito.setOpaque(isActive());
-		boxDebito.setBounds(348, 222, 76, 23);
-		contentPane.add(boxDebito);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
-		btnCadastrar.setBounds(310, 252, 114, 23);
+		btnCadastrar.setBounds(310, 433, 114, 23);
 		contentPane.add(btnCadastrar);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField.setColumns(10);
+		textField.setBounds(305, 181, 119, 20);
+		contentPane.add(textField);
+		
+		JLabel lblConfirmarSenha = new JLabel("Confirmar senha");
+		lblConfirmarSenha.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblConfirmarSenha.setBounds(197, 184, 108, 14);
+		contentPane.add(lblConfirmarSenha);
+		
+		lblNewLabel = new JLabel("Endere\u00E7o");
+		lblNewLabel.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 16));
+		lblNewLabel.setBounds(10, 236, 114, 30);
+		contentPane.add(lblNewLabel);
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField_1.setColumns(10);
+		textField_1.setBounds(68, 301, 87, 20);
+		contentPane.add(textField_1);
+		
+		lblEndereo = new JLabel("CEP");
+		lblEndereo.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblEndereo.setBounds(10, 303, 63, 14);
+		contentPane.add(lblEndereo);
+		
+		lblCep = new JLabel("Endere\u00E7o");
+		lblCep.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblCep.setBounds(10, 343, 63, 20);
+		contentPane.add(lblCep);
+		
+		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField_2.setColumns(10);
+		textField_2.setBounds(80, 344, 344, 20);
+		contentPane.add(textField_2);
+		
+		lblN = new JLabel("N\u00BA");
+		lblN.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblN.setBounds(10, 390, 48, 14);
+		contentPane.add(lblN);
+		
+		textField_3 = new JTextField();
+		textField_3.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField_3.setColumns(10);
+		textField_3.setBounds(40, 387, 48, 20);
+		contentPane.add(textField_3);
+		
+		lblComplemento = new JLabel("Complemento");
+		lblComplemento.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblComplemento.setBounds(165, 303, 94, 14);
+		contentPane.add(lblComplemento);
+		
+		textField_6 = new JTextField("Ex.: Casa, apartamento, etc.");
+		textField_6.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField_6.setColumns(10);
+		textField_6.setBounds(257, 301, 167, 20);
+		contentPane.add(textField_6);
+		
+		lblBairro = new JLabel("Bairro");
+		lblBairro.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblBairro.setBounds(104, 389, 48, 14);
+		contentPane.add(lblBairro);
+		
+		textField_5 = new JTextField();
+		textField_5.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField_5.setColumns(10);
+		textField_5.setBounds(151, 384, 108, 20);
+		contentPane.add(textField_5);
+		
+		lblCidade = new JLabel("Cidade");
+		lblCidade.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
+		lblCidade.setBounds(269, 389, 48, 14);
+		contentPane.add(lblCidade);
+		
+		textField_7 = new JTextField();
+		textField_7.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
+		textField_7.setColumns(10);
+		textField_7.setBounds(316, 384, 108, 20);
+		contentPane.add(textField_7);
 	}
 }

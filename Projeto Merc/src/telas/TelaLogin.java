@@ -101,7 +101,7 @@ public class TelaLogin {
 		lblLogin.setBounds(85, 85, 46, 23);
 		frame.getContentPane().add(lblLogin);
 		
-		JLabel lblUser = new JLabel("Username");
+		JLabel lblUser = new JLabel("User CPF");
 		lblUser.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUser.setFont(new Font("Swis721 WGL4 BT", Font.BOLD, 12));
 		lblUser.setBounds(85, 116, 68, 23);

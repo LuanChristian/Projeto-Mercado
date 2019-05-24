@@ -13,6 +13,7 @@ import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+import acao.Acao;
 import beans.Usuario;
 import dados.Dados;
 
@@ -28,6 +29,7 @@ public class TelaLogin {
 	private JTextField textPassword;
 	private final JLabel label = new JLabel("New label");
 	public static SignIn si = new SignIn();
+	Acao a = new Acao();
 
 	 // Iniciando a tela
 
@@ -55,7 +57,7 @@ public class TelaLogin {
 
 	// criando a tela
 	
-	public TelaLogin() {
+	public  TelaLogin() {
 		initialize();
 	}
 
@@ -119,15 +121,10 @@ public class TelaLogin {
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				boolean verificar= false;
 				
-				for(int i =0;i<Dados.ListaUsuario.size();i++) {
-					if(Dados.ListaUsuario.get(i).getuser().equals(textUsername.getText())&&Dados.ListaUsuario.get(i).getPassword().equals(textPassword.getText())) {
-						verificar =true;
-						break;
-					}
-				}
-				if(verificar) {
+			
+				
+				if(a.Autenticar(Dados.ListaUsuario, textUsername.getText(), textPassword.getText())) {
 					//Adicionando tela 2 no botão
 					frame.dispose();
 					

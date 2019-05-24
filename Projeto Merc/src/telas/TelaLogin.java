@@ -7,8 +7,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import beans.Usuario;
+import dados.Dados;
+
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
@@ -29,6 +35,12 @@ public class TelaLogin {
 				try {
 					TelaLogin window = new TelaLogin();
 					window.frame.setVisible(true);
+					
+					Usuario master = new Usuario();
+					master.setPassword("12345");
+					master.setuser("Master");
+					Dados.ListaUsuario.add(master);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,11 +69,26 @@ public class TelaLogin {
 		btnSignIn.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean verificar=false;
+				
 			
-				//Adicionando tela 2 no botão
-				frame.dispose();
-				SignIn si = new SignIn();
-				si.setVisible(true);
+				for(int i=0; i<Dados.ListaUsuario.size(); i++) {
+					if(textUsername.getText().equals(Dados.ListaUsuario.get(i).getuser()) && textPassword.getText().equals(Dados.ListaUsuario.get(i).getPassword()));
+
+					
+					//Adicionando tela 2 no botão
+					frame.dispose();
+					SignIn si = new SignIn();
+					si.setVisible(true);
+					verificar = true;
+					System.out.println(verificar);
+					break;
+				}
+				
+				if (verificar = false)
+					JOptionPane.showMessageDialog(null, "Usuáio ou senha incorretos");
+				
+				
 			
 			}
 		});

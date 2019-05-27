@@ -139,6 +139,6 @@ public class TelaLogin {
 		frame.getContentPane().add(btnSignUp);
 		label.setBounds(121, -6, 213, 129);
 		frame.getContentPane().add(label);
-		label.setIcon(new ImageIcon("C:\\Users\\Luan Christian Cunha\\Desktop\\Java\\Projeto mercado\\Logotipo do mercado\\Super Online Market 50-01.png"));
+		label.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Projeto\\Projeto-Mercado\\Projeto Merc\\src\\Imagens\\Super Online Market 50-01.png"));
 	}
 }

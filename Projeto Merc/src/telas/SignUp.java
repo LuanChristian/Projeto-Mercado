@@ -48,7 +48,7 @@ public class SignUp extends JFrame {
 	public SignUp() {
 		
 		//Ícone
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Luan Christian Cunha\\Pictures\\Icones\\Redes sociais\\Brilliance Resume Update - OfficeWorld\\Social Icon\\Transparent\\19 - profile t.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\i3i\\Desktop\\Projeto\\Projeto-Mercado\\Projeto Merc\\src\\Imagens\\19 - profile t.png"));
 		
 		//Tela
 		setTitle("Sign Up");

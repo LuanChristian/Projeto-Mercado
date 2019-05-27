@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.Container;
 
@@ -37,20 +39,17 @@ public class SignIn extends JFrame {
 	private JTextField txtPromoes;
 	
 
-	// Adicionando as informações na tela
-	
+// Adicionando as informações na tela
+
 	public SignIn() {
 		
-		//Ícone
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Luan Christian Cunha\\Pictures\\Icones\\Redes sociais\\Brilliance Resume Update - OfficeWorld\\Social Icon\\Transparent\\17 - computer t.png"));
-		
-		
-		
-		//Tela
+
+//Tela
+
 		setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 12));
 		setTitle("Buying");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 705, 518);
+		setBounds(100, 100, 685, 483);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(null);
@@ -80,6 +79,8 @@ public class SignIn extends JFrame {
 		buttonGroup.add(fogao);
 		
 		eletro.add(fogao);
+		JMenuItem sair = new JMenuItem("Exit");
+		exit.add(sair);
 		
 		JMenuItem lavadora = new JMenuItem("Lavadora de roupa");
 		eletro.add(lavadora);
@@ -145,6 +146,24 @@ public class SignIn extends JFrame {
 		ti.add(perifericos);
 		
 		
+		setBounds(100, 100, 450, 300);
+
+		sair.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				TelaLogin t = new TelaLogin();
+				
+				dispose();
+				
+				
+				
+			
+			}
+		});
+
+
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -261,5 +280,6 @@ public class SignIn extends JFrame {
 		
 		
 		
+
 	}
 }

@@ -7,8 +7,15 @@ public class Usuario extends Endereco {
 	private String cpf;
 	private String password;
 	private Endereco endereco;
+	private float valorApagar;
 	
 	
+	public float getValorApagar() {
+		return valorApagar;
+	}
+	public void setValorApagar(float valorApagar) {
+		this.valorApagar = valorApagar;
+	}
 	//getts and setts
 	public String getNome() {
 		return nome;

@@ -79,34 +79,10 @@ public class TelaLogin {
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
 
-		btnSignIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				boolean verificar=false;
-				
-			
-				for(int i=0; i<Dados.ListaUsuario.size(); i++) {
-					if(textUsername.getText().equals(Dados.ListaUsuario.get(i).getuser()) && textPassword.getText().equals(Dados.ListaUsuario.get(i).getPassword()));
-
-					
-					//Adicionando tela 2 no botão
-					frame.dispose();
-					SignIn si = new SignIn();
-					si.setVisible(true);
-					verificar = true;
-					System.out.println(verificar);
-					break;
-				}
-				
-				if (verificar = false)
-					JOptionPane.showMessageDialog(null, "Usuáio ou senha incorretos");
-				
-				
-			
-			}
-		});
-
 		btnSignIn.setBounds(163, 187, 75, 20);
 		frame.getContentPane().add(btnSignIn);
+		
+		
 		
 		JLabel lblLogin = new JLabel("Login");
 		lblLogin.setHorizontalAlignment(SwingConstants.LEFT);
@@ -137,6 +113,13 @@ public class TelaLogin {
 		frame.getContentPane().add(textPassword);
 		
 		JButton btnSignUp = new JButton("Sign up");
+		btnSignUp.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
+		btnSignUp.setBounds(249, 186, 75, 20);
+		frame.getContentPane().add(btnSignUp);
+		label.setBounds(121, -6, 213, 129);
+		frame.getContentPane().add(label);
+		label.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Projeto\\Projeto-Mercado\\Projeto Merc\\src\\Imagens\\Super Online Market 50-01.png"));
+		
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -150,27 +133,23 @@ public class TelaLogin {
 		
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				boolean verificar=false;
 				
 			
 				
-				if(a.Autenticar(Dados.ListaUsuario, textUsername.getText(), textPassword.getText())) {
-					//Adicionando tela 2 no botão
+					if(a.Autenticar(Dados.ListaUsuario, textUsername.getText(),textPassword.getText())==true) {
+
 					frame.dispose();
-					
+					SignIn si = new SignIn();
 					si.setVisible(true);
-				}else {
-					JOptionPane.showMessageDialog(null, "Senha ou Usuario incorretos");
-				}
-				
+					}else {
+						JOptionPane.showMessageDialog(null, "Usuáio ou senha incorretos");
+					}
 			
 			}
 		});
-		btnSignUp.setFont(new Font("Swis721 WGL4 BT", Font.PLAIN, 11));
-		btnSignUp.setBounds(249, 186, 75, 20);
-		frame.getContentPane().add(btnSignUp);
-		label.setBounds(121, -6, 213, 129);
-		frame.getContentPane().add(label);
-		label.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Projeto\\Projeto-Mercado\\Projeto Merc\\src\\Imagens\\Super Online Market 50-01.png"));
+		
+		frame.setVisible(true);
+		
 	}
 }

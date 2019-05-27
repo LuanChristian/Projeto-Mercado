@@ -2,6 +2,8 @@ package acao;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import beans.Usuario;
 import dados.Dados;
 
@@ -22,4 +24,24 @@ public class Acao {
 		return verificar;
 		
 	}
+	
+	public void SomarConta(Float valor,Usuario user) {
+		user.setValorApagar(user.getValorApagar()+valor);
+	}
+	
+	public void Subtrair(Usuario User,Float valor) {
+		
+		if(User.getValorApagar()>=valor) {
+		User.setValorApagar(User.getValorApagar()-valor);
+	}}
+	
+	public void calculoApagar(Float valor,Usuario user) {
+		
+		if(valor<user.getValorApagar()) {
+			JOptionPane.showMessageDialog(null, "valor insulficiente\nO Total da sua compra ficou "+user.getValorApagar());
+		}
+		
+		
+	}
+	
 }
